@@ -497,11 +497,11 @@
             <button class="btn" id="modalCloseBtn">Close</button>
         </div>
     </div>
-    <script>
+   <script>
   if ('serviceWorker' in navigator) {
     navigator.serviceWorker.register('/FITURA/sw.js', { scope: '/FITURA/' })
-      .then(() => console.log('SW registered'))
-      .catch(err => console.error('SW register failed:', err));
+      .then(() => console.log('Service Worker registered'))
+      .catch(err => console.error('Service Worker registration failed:', err));
   }
 </script>
 
@@ -1100,3 +1100,4 @@
 </body>
 
 </html>
+
