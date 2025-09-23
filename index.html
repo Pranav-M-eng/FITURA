@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FitWell Connect - Complete Wellness Platform</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="manifest" href="manifest.json">
+    <link rel="manifest" href="/FITURA/manifest.json">
 
 </head>
 <body>
@@ -499,7 +499,9 @@
     </div>
     <script>
   if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('/sw.js');
+    navigator.serviceWorker.register('/FITURA/sw.js', { scope: '/FITURA/' })
+      .then(() => console.log('SW registered'))
+      .catch(err => console.error('SW register failed:', err));
   }
 </script>
 
@@ -1096,4 +1098,5 @@
         }
     </script>
 </body>
+
 </html>
