@@ -1,12 +1,12 @@
 self.addEventListener("install", e => {
   e.waitUntil(
     caches.open("fitura-cache").then(cache =>
-      cache.addAll(["/", "/index.html", "/style.css", "/script.js"])
+      cache.addAll([
+        "/FITURA/",
+        "/FITURA/index.html",
+        "/FITURA/style.css",
+        "/FITURA/script.js"
+      ])
     )
-  );
-});
-self.addEventListener("fetch", e => {
-  e.respondWith(
-    caches.match(e.request).then(response => response || fetch(e.request))
   );
 });
