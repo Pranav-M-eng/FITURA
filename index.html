@@ -1,0 +1,1099 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FitWell Connect - Complete Wellness Platform</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="manifest" href="manifest.json">
+
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🏃‍♀️ FitWell Connect</h1>
+            <p>Your Complete Wellness Journey - Physical • Mental • Sports</p>
+        </div>
+
+        <div class="nav-tabs">
+            <button class="nav-tab active" data-tab="fitness">💪 Physical Fitness</button>
+            <button class="nav-tab" data-tab="mental">🧘‍♀️ Mental Well-being</button>
+            <button class="nav-tab" data-tab="community">🤝 Community</button>
+            <button class="nav-tab" data-tab="sports">⚽ Sports Hub</button>
+            <button class="nav-tab" data-tab="dashboard">📊 Dashboard</button>
+        </div>
+
+        <!-- Physical Fitness Panel -->
+        <div id="fitness" class="content-panel active">
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <h3>🏋️‍♀️ AI Workout Plans</h3>
+                    <p>Personalized routines based on your goals and fitness level</p>
+                </div>
+                <div class="feature-card">
+                    <h3>🥗 Smart Nutrition</h3>
+                    <p>Custom meal plans and calorie tracking</p>
+                </div>
+                <div class="feature-card">
+                    <h3>⏰ Active Reminders</h3>
+                    <p>Smart notifications to keep you moving</p>
+                </div>
+            </div>
+
+            <div class="section">
+                <h3>🏋️‍♀️ Today's Workout</h3>
+                <div class="input-group">
+                    <label>Choose Your Goal:</label>
+                    <select id="workoutGoal">
+                        <option value="weight-loss">Weight Loss 🔥</option>
+                        <option value="muscle-gain">Muscle Building 💪</option>
+                        <option value="endurance">Cardio Endurance 🏃‍♀️</option>
+                        <option value="flexibility">Flexibility 🧘‍♀️</option>
+                        <option value="strength">Strength Training 🏋️‍♀️</option>
+                    </select>
+                </div>
+                <div id="workoutDisplay" class="workout-card">
+                    <h4>🔥 Weight Loss Circuit (45 min)</h4>
+                    <ul style="margin: 15px 0; padding-left: 20px;">
+                        <li>Warm-up: Dynamic stretching (5 min)</li>
+                        <li>HIIT Circuit: Burpees, jumping jacks, mountain climbers (25 min)</li>
+                        <li>Strength: Bodyweight exercises (10 min)</li>
+                        <li>Cool-down: Static stretching (5 min)</li>
+                    </ul>
+                    <div class="progress-container">
+                        <label>Workout Progress:</label>
+                        <div class="progress-bar">
+                            <div class="progress-fill" id="workoutProgress" style="width: 0%"></div>
+                        </div>
+                    </div>
+                    <button class="btn" id="startWorkoutBtn">Start Workout 🚀</button>
+                    <button class="btn btn-secondary" id="pauseWorkoutBtn" style="display: none;">Pause ⏸️</button>
+                </div>
+            </div>
+
+            <div class="section">
+                <h3>💧 Hydration & Nutrition</h3>
+                <div class="progress-container">
+                    <label>Water Intake: <span id="waterCount">0</span>/8 glasses</label>
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="waterProgress" style="width: 0%"></div>
+                    </div>
+                    <button class="btn" id="addWaterBtn">Add Glass 💧</button>
+                    <button class="btn btn-secondary" id="resetWaterBtn">Reset 🔄</button>
+                </div>
+
+                <div class="progress-container" style="margin-top: 20px;">
+                    <label>Daily Calories: <span id="totalCalories">0</span>/2000</label>
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="calorieProgress" style="width: 0%"></div>
+                    </div>
+                    <div class="inline-inputs" style="margin-top: 10px;">
+                        <input type="text" id="foodItem" placeholder="Food item">
+                        <input type="number" id="calorieAmount" placeholder="Calories">
+                        <button class="btn" id="addMealBtn">Add Meal 🍽️</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h3>⏰ Smart Reminders</h3>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 10px;">
+                    <label><input type="checkbox" id="workoutReminder" checked> Daily Workout (9 AM)</label>
+                    <label><input type="checkbox" id="waterReminder" checked> Water Breaks (Every 2h)</label>
+                    <label><input type="checkbox" id="moveReminder" checked> Movement (Every 30m)</label>
+                    <label><input type="checkbox" id="sleepReminder"> Sleep Time (10 PM)</label>
+                </div>
+                <button class="btn" id="saveRemindersBtn">Save Preferences ✅</button>
+            </div>
+        </div>
+
+        <!-- Mental Well-being Panel -->
+        <div id="mental" class="content-panel">
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <h3>🤝 Support Community</h3>
+                    <p>Connect with peers and share your journey</p>
+                </div>
+                <div class="feature-card">
+                    <h3>🧘‍♀️ Stress Relief</h3>
+                    <p>Meditation, breathing exercises, and mindfulness</p>
+                </div>
+                <div class="feature-card">
+                    <h3>📊 Mood Tracking</h3>
+                    <p>Monitor your mental health with daily check-ins</p>
+                </div>
+            </div>
+
+            <div class="section">
+                <h3>😰 Stress Management</h3>
+                <p>Quick access to stress relief tools and techniques when you need them most.</p>
+                <div style="display: flex; gap: 15px; flex-wrap: wrap; margin: 20px 0;">
+                    <button class="btn btn-secondary" id="quickStressBtn" style="background: linear-gradient(135deg, #ff6b6b, #ee5a24);">🆘 Quick Stress Relief</button>
+                    <button class="btn" id="emergencyStressBtn" style="background: linear-gradient(135deg, #e74c3c, #c0392b);">⚡ Emergency Calm</button>
+                    <button class="btn" id="stressAssessmentBtn" style="background: linear-gradient(135deg, #f39c12, #e67e22);">📋 Stress Assessment</button>
+                </div>
+                
+                <div id="stressContent" style="background: #fff3cd; border-radius: 10px; padding: 20px; margin-top: 15px; display: none;">
+                    <h4>🌟 Immediate Stress Relief</h4>
+                    <p>You're experiencing stress right now, and that's okay. Try these quick techniques:</p>
+                    <ul style="margin: 10px 0; padding-left: 20px;">
+                        <li><strong>5-4-3-2-1 Grounding:</strong> Name 5 things you see, 4 you can touch, 3 you hear, 2 you smell, 1 you taste</li>
+                        <li><strong>Box Breathing:</strong> Inhale 4 counts → Hold 4 → Exhale 4 → Hold 4</li>
+                        <li><strong>Progressive Relaxation:</strong> Tense and release each muscle group</li>
+                        <li><strong>Positive Affirmation:</strong> "This feeling is temporary, and I can handle this"</li>
+                    </ul>
+                    <button class="btn" id="hideStressContentBtn">I'm Feeling Better ✨</button>
+                </div>
+            </div>
+
+            <div class="section">
+                <h3>🧘‍♀️ Wellness Tools</h3>
+                <div style="display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 20px;">
+                    <button class="btn" id="meditationBtn">🧘‍♀️ 5-Min Meditation</button>
+                    <button class="btn" id="breathingBtn">🌬️ Breathing Exercise</button>
+                    <button class="btn" id="stressReliefBtn">📚 Stress Resources</button>
+                    <button class="btn" id="moodAnalysisBtn">📊 Mood Analysis</button>
+                </div>
+
+                <div>
+                    <h4>Daily Mood Check-in</h4>
+                    <p>How are you feeling right now?</p>
+                    <div style="display: flex; gap: 10px; flex-wrap: wrap; margin: 10px 0;">
+                        <button class="btn mood-btn" data-mood="excellent" style="background: #4CAF50;">😊 Excellent</button>
+                        <button class="btn mood-btn" data-mood="good" style="background: #8BC34A;">🙂 Good</button>
+                        <button class="btn mood-btn" data-mood="okay" style="background: #FFC107;">😐 Okay</button>
+                        <button class="btn mood-btn" data-mood="stressed" style="background: #FF9800;">😟 Stressed</button>
+                        <button class="btn mood-btn" data-mood="low" style="background: #F44336;">😔 Low</button>
+                    </div>
+                    <div id="moodFeedback" style="margin-top: 10px; font-style: italic; color: #667eea;"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Community Panel -->
+        <div id="community" class="content-panel">
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <h3>🤝 Supportive Network</h3>
+                    <p>Share experiences and support each other</p>
+                </div>
+                <div class="feature-card">
+                    <h3>💬 Real Stories</h3>
+                    <p>Authentic journeys from real people</p>
+                </div>
+                <div class="feature-card">
+                    <h3>🌟 Inspiration</h3>
+                    <p>Daily motivation and encouragement</p>
+                </div>
+            </div>
+
+            <div class="section">
+                <h3>💬 Community Feed</h3>
+                <div id="communityPosts">
+                    <div class="community-post">
+                        <div class="post-header">
+                            <div class="avatar">A</div>
+                            <div>
+                                <strong>Alex M.</strong>
+                                <small style="color: #666;">2 hours ago</small>
+                            </div>
+                        </div>
+                        <p>"Just finished my first marathon! 🏃‍♀️ The mental strength I built through this platform was incredible. Thank you community!"</p>
+                        <button class="btn like-btn" data-likes="23">❤️ 23 Likes</button>
+                        <button class="btn">💬 Reply</button>
+                    </div>
+                    <div class="community-post">
+                        <div class="post-header">
+                            <div class="avatar">S</div>
+                            <div>
+                                <strong>Sarah K.</strong>
+                                <small style="color: #666;">5 hours ago</small>
+                            </div>
+                        </div>
+                        <p>"Having anxiety today. Any quick stress relief tips? 🙏"</p>
+                        <button class="btn like-btn" data-likes="8">❤️ 8 Likes</button>
+                        <button class="btn">💬 15 Replies</button>
+                    </div>
+                    <div class="community-post">
+                        <div class="post-header">
+                            <div class="avatar">M</div>
+                            <div>
+                                <strong>Mike T.</strong>
+                                <small style="color: #666;">1 day ago</small>
+                            </div>
+                        </div>
+                        <p>"Week 3 of my fitness journey! Down 5 pounds and feeling stronger every day. This community keeps me motivated! 💪"</p>
+                        <button class="btn like-btn" data-likes="45">❤️ 45 Likes</button>
+                        <button class="btn">💬 12 Replies</button>
+                    </div>
+                </div>
+
+                <div style="margin-top: 20px;">
+                    <h4>Share Your Journey</h4>
+                    <textarea id="newPostText" placeholder="What's on your mind? Share your progress, challenges, or victories..." rows="3"></textarea>
+                    <button class="btn" id="sharePostBtn">Share Post ✨</button>
+                </div>
+            </div>
+
+            <div class="section">
+                <h3>🌟 Community Support</h3>
+                <div style="display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 20px;">
+                    <button class="btn" id="findBuddyBtn">👯‍♀️ Find Workout Buddy</button>
+                    <button class="btn" id="joinGroupBtn">👥 Join Support Group</button>
+                    <button class="btn" id="mentalHealthBtn">🧠 Mental Health Circle</button>
+                    <button class="btn" id="challengesBtn">🏆 Community Challenges</button>
+                </div>
+
+                <div>
+                    <h4>🎯 Active Community Challenges</h4>
+                    <div style="background: white; padding: 15px; border-radius: 10px; margin-bottom: 10px; border-left: 4px solid #4CAF50;">
+                        <strong>30-Day Mindfulness Challenge</strong><br>
+                        <small>Join 234 members practicing daily mindfulness</small>
+                    </div>
+                    <div style="background: white; padding: 15px; border-radius: 10px; margin-bottom: 10px; border-left: 4px solid #2196F3;">
+                        <strong>Step Count Competition</strong><br>
+                        <small>156 participants competing this week</small>
+                    </div>
+                    <div style="background: white; padding: 15px; border-radius: 10px; border-left: 4px solid #FF9800;">
+                        <strong>Hydration Heroes</strong><br>
+                        <small>Track your daily water intake with 89 others</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sports Hub Panel -->
+        <div id="sports" class="content-panel">
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <h3>🏆 Tournament Discovery</h3>
+                    <p>Find and join local competitions</p>
+                </div>
+                <div class="feature-card">
+                    <h3>👤 Athlete Profiles</h3>
+                    <p>Showcase your skills and achievements</p>
+                </div>
+                <div class="feature-card">
+                    <h3>💰 Career Support</h3>
+                    <p>Connect with sponsors and coaches</p>
+                </div>
+            </div>
+
+            <div class="section">
+                <h3>🏆 Available Tournaments</h3>
+                <div class="tournament-card">
+                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                        <h4>🏀 City Basketball Championship</h4>
+                        <span style="background: rgba(255,255,255,0.3); padding: 5px 10px; border-radius: 15px;">Mar 20, 2025</span>
+                    </div>
+                    <p><strong>Location:</strong> Downtown Sports Complex</p>
+                    <p><strong>Prize Pool:</strong> $8,000 | <strong>Entry:</strong> $75</p>
+                    <p><strong>Skill Level:</strong> Intermediate to Advanced</p>
+                    <button class="btn register-btn" data-tournament="basketball">Register Now 🎯</button>
+                </div>
+
+                <div class="tournament-card">
+                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                        <h4>⚽ Spring Soccer League</h4>
+                        <span style="background: rgba(255,255,255,0.3); padding: 5px 10px; border-radius: 15px;">Apr 5, 2025</span>
+                    </div>
+                    <p><strong>Location:</strong> Metro Stadium</p>
+                    <p><strong>Prize Pool:</strong> $12,000 | <strong>Entry:</strong> $100</p>
+                    <p><strong>Skill Level:</strong> All Levels Welcome</p>
+                    <button class="btn register-btn" data-tournament="soccer">Register Now ⚽</button>
+                </div>
+
+                <div class="tournament-card">
+                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                        <h4>🎾 Tennis Open Tournament</h4>
+                        <span style="background: rgba(255,255,255,0.3); padding: 5px 10px; border-radius: 15px;">Apr 15, 2025</span>
+                    </div>
+                    <p><strong>Location:</strong> Elite Tennis Club</p>
+                    <p><strong>Prize Pool:</strong> $5,000 | <strong>Entry:</strong> $50</p>
+                    <p><strong>Skill Level:</strong> Beginner to Professional</p>
+                    <button class="btn register-btn" data-tournament="tennis">Register Now 🎾</button>
+                </div>
+            </div>
+
+            <div class="section">
+                <h3>👤 Create Your Athlete Profile</h3>
+                <div class="input-group">
+                    <label>Primary Sport:</label>
+                    <select id="primarySport">
+                        <option value="basketball">Basketball 🏀</option>
+                        <option value="soccer">Soccer ⚽</option>
+                        <option value="tennis">Tennis 🎾</option>
+                        <option value="swimming">Swimming 🏊‍♀️</option>
+                        <option value="track">Track & Field 🏃‍♀️</option>
+                        <option value="cricket">Cricket 🏏</option>
+                        <option value="volleyball">Volleyball 🏐</option>
+                        <option value="other">Other Sport</option>
+                    </select>
+                </div>
+                <div class="input-group">
+                    <label>Experience Level:</label>
+                    <select id="experienceLevel">
+                        <option value="beginner">Beginner (0-2 years)</option>
+                        <option value="intermediate">Intermediate (3-5 years)</option>
+                        <option value="advanced">Advanced (6-10 years)</option>
+                        <option value="professional">Professional (10+ years)</option>
+                    </select>
+                </div>
+                <div class="input-group">
+                    <label>Location:</label>
+                    <input type="text" id="athleteLocation" placeholder="Enter your city/region">
+                </div>
+                <div class="input-group">
+                    <label>Achievements & Awards:</label>
+                    <textarea id="achievements" rows="3" placeholder="List your medals, records, championships..."></textarea>
+                </div>
+                <button class="btn" id="saveProfileBtn">Update Profile 💫</button>
+            </div>
+
+            <div class="section">
+                <h3>🚀 Career Development</h3>
+                <div style="display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 20px;">
+                    <button class="btn" id="sponsorshipBtn">💰 Find Sponsors</button>
+                    <button class="btn" id="coachBtn">👨‍🏫 Connect with Coaches</button>
+                    <button class="btn" id="scoutBtn">🔍 Scout Network</button>
+                    <button class="btn" id="trainingBtn">📈 Training Programs</button>
+                </div>
+
+                <div>
+                    <h4>🏆 Create Your Own Tournament</h4>
+                    <div class="input-group">
+                        <label>Tournament Name:</label>
+                        <input type="text" id="tournamentName" placeholder="e.g., Spring Basketball Cup">
+                    </div>
+                    <div class="inline-inputs">
+                        <div class="input-group" style="flex: 1;">
+                            <label>Sport:</label>
+                            <select id="tournamentSport">
+                                <option value="basketball">Basketball</option>
+                                <option value="soccer">Soccer</option>
+                                <option value="tennis">Tennis</option>
+                                <option value="cricket">Cricket</option>
+                                <option value="volleyball">Volleyball</option>
+                            </select>
+                        </div>
+                        <div class="input-group" style="flex: 1;">
+                            <label>Date:</label>
+                            <input type="date" id="tournamentDate">
+                        </div>
+                    </div>
+                    <div class="inline-inputs">
+                        <div class="input-group" style="flex: 1;">
+                            <label>Prize Pool ($):</label>
+                            <input type="number" id="prizePool" placeholder="5000">
+                        </div>
+                        <div class="input-group" style="flex: 1;">
+                            <label>Entry Fee ($):</label>
+                            <input type="number" id="entryFee" placeholder="50">
+                        </div>
+                    </div>
+                    <button class="btn btn-success" id="createTournamentBtn">Create Tournament 🏆</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Dashboard Panel -->
+        <div id="dashboard" class="content-panel">
+            <div class="section">
+                <h3>📊 Your Wellness Overview</h3>
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-number" id="streak">7</div>
+                        <div>Day Streak</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number" id="workouts">23</div>
+                        <div>Workouts</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number" id="calories">2,840</div>
+                        <div>Calories Burned</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number" id="posts">12</div>
+                        <div>Community Posts</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number" id="tournaments">4</div>
+                        <div>Tournaments</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h3>📈 Weekly Progress</h3>
+                <div class="progress-container">
+                    <label>Fitness Goals: 78% Complete</label>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 78%"></div>
+                    </div>
+                </div>
+                <div class="progress-container">
+                    <label>Mental Wellness: 85% Complete</label>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 85%"></div>
+                    </div>
+                </div>
+                <div class="progress-container">
+                    <label>Sports Training: 65% Complete</label>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 65%"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h3>🏆 Recent Achievements</h3>
+                <div style="display: grid; gap: 15px;">
+                    <div style="background: white; padding: 15px; border-radius: 10px; border-left: 4px solid #4CAF50;">
+                        <strong>🔥 Fitness Champion:</strong> Completed 7-day workout streak!
+                    </div>
+                    <div style="background: white; padding: 15px; border-radius: 10px; border-left: 4px solid #2196F3;">
+                        <strong>🤝 Community Star:</strong> Received 50+ likes on supportive posts!
+                    </div>
+                    <div style="background: white; padding: 15px; border-radius: 10px; border-left: 4px solid #FF9800;">
+                        <strong>⚽ Tournament Ready:</strong> Successfully registered for first competition!
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h3>🎯 Weekly Goals</h3>
+                <div style="display: grid; gap: 10px;">
+                    <label style="display: flex; align-items: center; gap: 10px;">
+                        <input type="checkbox" checked> Complete 5 workouts this week
+                    </label>
+                    <label style="display: flex; align-items: center; gap: 10px;">
+                        <input type="checkbox" checked> Share 2 community posts
+                    </label>
+                    <label style="display: flex; align-items: center; gap: 10px;">
+                        <input type="checkbox"> Register for a tournament
+                    </label>
+                    <label style="display: flex; align-items: center; gap: 10px;">
+                        <input type="checkbox"> Try 3 meditation sessions
+                    </label>
+                    <label style="display: flex; align-items: center; gap: 10px;">
+                        <input type="checkbox" checked> Maintain 8 glasses of water daily
+                    </label>
+                </div>
+                <button class="btn" id="updateGoalsBtn">Update Goals 🎯</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Notification -->
+    <div id="notification" class="notification"></div>
+
+    <!-- Modal -->
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h3 id="modalTitle">Modal Title</h3>
+            <div id="modalContent">Modal content goes here.</div>
+            <button class="btn" id="modalCloseBtn">Close</button>
+        </div>
+    </div>
+    <script>
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('/sw.js');
+  }
+</script>
+
+
+    <script>
+        // Global variables
+        let waterCount = 0;
+        let totalCalories = 0;
+        let workoutProgress = 0;
+        let workoutTimer = null;
+        let isWorkoutActive = false;
+
+        // Tab switching functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            setupEventListeners();
+            initializeData();
+        });
+
+        function setupEventListeners() {
+            // Tab navigation
+            document.querySelectorAll('.nav-tab').forEach(tab => {
+                tab.addEventListener('click', function() {
+                    const targetTab = this.getAttribute('data-tab');
+                    switchTab(targetTab);
+                });
+            });
+
+            // Fitness section
+            document.getElementById('workoutGoal').addEventListener('change', updateWorkoutPlan);
+            document.getElementById('startWorkoutBtn').addEventListener('click', startWorkout);
+            document.getElementById('pauseWorkoutBtn').addEventListener('click', pauseWorkout);
+            document.getElementById('addWaterBtn').addEventListener('click', addWater);
+            document.getElementById('resetWaterBtn').addEventListener('click', resetWater);
+            document.getElementById('addMealBtn').addEventListener('click', addMeal);
+            document.getElementById('saveRemindersBtn').addEventListener('click', saveReminders);
+
+            // Mental wellness section
+            document.querySelectorAll('.like-btn').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    likePost(this);
+                });
+            });
+            document.getElementById('sharePostBtn').addEventListener('click', sharePost);
+            document.getElementById('meditationBtn').addEventListener('click', startMeditation);
+            document.getElementById('breathingBtn').addEventListener('click', startBreathing);
+            document.getElementById('stressReliefBtn').addEventListener('click', showStressResources);
+            document.getElementById('moodAnalysisBtn').addEventListener('click', showMoodAnalysis);
+            
+            // Stress management buttons
+            document.getElementById('quickStressBtn').addEventListener('click', showQuickStress);
+            document.getElementById('emergencyStressBtn').addEventListener('click', showEmergencyCalm);
+            document.getElementById('stressAssessmentBtn').addEventListener('click', showStressAssessment);
+            document.getElementById('hideStressContentBtn').addEventListener('click', hideStressContent);
+            
+            document.querySelectorAll('.mood-btn').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const mood = this.getAttribute('data-mood');
+                    setMood(mood);
+                });
+            });
+
+            // Community section
+            document.getElementById('findBuddyBtn').addEventListener('click', findWorkoutBuddy);
+            document.getElementById('joinGroupBtn').addEventListener('click', joinSupportGroup);
+            document.getElementById('mentalHealthBtn').addEventListener('click', joinMentalHealthCircle);
+            document.getElementById('challengesBtn').addEventListener('click', viewChallenges);
+
+            // Sports section
+            document.querySelectorAll('.register-btn').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const tournament = this.getAttribute('data-tournament');
+                    registerForTournament(tournament);
+                });
+            });
+            document.getElementById('saveProfileBtn').addEventListener('click', saveAthleteProfile);
+            document.getElementById('sponsorshipBtn').addEventListener('click', findSponsors);
+            document.getElementById('coachBtn').addEventListener('click', findCoaches);
+            document.getElementById('scoutBtn').addEventListener('click', connectWithScouts);
+            document.getElementById('trainingBtn').addEventListener('click', viewTrainingPrograms);
+            document.getElementById('createTournamentBtn').addEventListener('click', createTournament);
+
+            // Dashboard
+            document.getElementById('updateGoalsBtn').addEventListener('click', updateGoals);
+
+            // Modal
+            document.querySelector('.close').addEventListener('click', closeModal);
+            document.getElementById('modalCloseBtn').addEventListener('click', closeModal);
+            document.getElementById('modal').addEventListener('click', function(e) {
+                if (e.target === this) closeModal();
+            });
+        }
+
+        function switchTab(tabName) {
+            // Remove active class from all tabs and panels
+            document.querySelectorAll('.nav-tab').forEach(tab => tab.classList.remove('active'));
+            document.querySelectorAll('.content-panel').forEach(panel => panel.classList.remove('active'));
+            
+            // Add active class to selected tab and panel
+            document.querySelector(`[data-tab="${tabName}"]`).classList.add('active');
+            document.getElementById(tabName).classList.add('active');
+        }
+
+        function initializeData() {
+            updateStats();
+            setInterval(updateStats, 30000); // Update stats every 30 seconds
+        }
+
+        function updateStats() {
+            // Simulate some random stat updates for demo purposes
+            if (Math.random() > 0.7) {
+                const streakEl = document.getElementById('streak');
+                const currentStreak = parseInt(streakEl.textContent);
+                streakEl.textContent = Math.max(1, currentStreak + Math.floor(Math.random() * 2));
+            }
+        }
+
+        // FITNESS FUNCTIONS
+        function updateWorkoutPlan() {
+            const goal = document.getElementById('workoutGoal').value;
+            const workoutDisplay = document.getElementById('workoutDisplay');
+            
+            const workouts = {
+                'weight-loss': {
+                    title: '🔥 Weight Loss HIIT Circuit (45 min)',
+                    exercises: [
+                        'Dynamic warm-up: Joint mobility (5 min)',
+                        'HIIT: Burpees, jumping jacks, mountain climbers (25 min)',
+                        'Strength circuit: Push-ups, squats, lunges (10 min)',
+                        'Cool-down: Static stretching (5 min)'
+                    ]
+                },
+                'muscle-gain': {
+                    title: '💪 Strength Building Session (60 min)',
+                    exercises: [
+                        'Warm-up: Dynamic movements (10 min)',
+                        'Compound lifts: Squats, deadlifts, bench press (30 min)',
+                        'Isolation work: Bicep curls, tricep dips (15 min)',
+                        'Cool-down: Light stretching (5 min)'
+                    ]
+                },
+                'endurance': {
+                    title: '🏃‍♀️ Cardio Endurance Training (50 min)',
+                    exercises: [
+                        'Warm-up: Light jogging (10 min)',
+                        'Steady-state cardio: Running/cycling (30 min)',
+                        'Cool-down: Walking and stretching (10 min)'
+                    ]
+                },
+                'flexibility': {
+                    title: '🧘‍♀️ Flexibility & Mobility (40 min)',
+                    exercises: [
+                        'Dynamic warm-up: Arm circles, leg swings (10 min)',
+                        'Yoga flow: Sun salutations, poses (25 min)',
+                        'Deep stretching: Hold stretches (5 min)'
+                    ]
+                },
+                'strength': {
+                    title: '🏋️‍♀️ Pure Strength Training (55 min)',
+                    exercises: [
+                        'Warm-up: Light cardio and mobility (10 min)',
+                        'Heavy compound movements (35 min)',
+                        'Cool-down: Foam rolling (10 min)'
+                    ]
+                }
+            };
+            
+            const selectedWorkout = workouts[goal];
+            const exercisesList = selectedWorkout.exercises.map(ex => `<li>${ex}</li>`).join('');
+            
+            workoutDisplay.innerHTML = `
+                <h4>${selectedWorkout.title}</h4>
+                <ul style="margin: 15px 0; padding-left: 20px;">
+                    ${exercisesList}
+                </ul>
+                <div class="progress-container">
+                    <label>Workout Progress:</label>
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="workoutProgress" style="width: ${workoutProgress}%"></div>
+                    </div>
+                </div>
+                <button class="btn" id="startWorkoutBtn">Start Workout 🚀</button>
+                <button class="btn btn-secondary" id="pauseWorkoutBtn" style="display: none;">Pause ⏸️</button>
+            `;
+            
+            // Reattach event listeners
+            document.getElementById('startWorkoutBtn').addEventListener('click', startWorkout);
+            document.getElementById('pauseWorkoutBtn').addEventListener('click', pauseWorkout);
+        }
+
+        function startWorkout() {
+            if (isWorkoutActive) return;
+            
+            isWorkoutActive = true;
+            document.getElementById('startWorkoutBtn').style.display = 'none';
+            document.getElementById('pauseWorkoutBtn').style.display = 'inline-block';
+            
+            showNotification('🚀 Workout started! Keep pushing!');
+            
+            workoutTimer = setInterval(() => {
+                workoutProgress += 1;
+                document.getElementById('workoutProgress').style.width = workoutProgress + '%';
+                
+                if (workoutProgress >= 100) {
+                    completeWorkout();
+                }
+            }, 200); // Faster for demo purposes
+        }
+
+        function pauseWorkout() {
+            if (workoutTimer) {
+                clearInterval(workoutTimer);
+                workoutTimer = null;
+            }
+            isWorkoutActive = false;
+            document.getElementById('startWorkoutBtn').style.display = 'inline-block';
+            document.getElementById('startWorkoutBtn').textContent = 'Resume Workout ▶️';
+            document.getElementById('pauseWorkoutBtn').style.display = 'none';
+            showNotification('⏸️ Workout paused. Take a breather!');
+        }
+
+        function completeWorkout() {
+            clearInterval(workoutTimer);
+            isWorkoutActive = false;
+            workoutProgress = 0;
+            
+            document.getElementById('startWorkoutBtn').style.display = 'inline-block';
+            document.getElementById('startWorkoutBtn').textContent = 'Start Workout 🚀';
+            document.getElementById('pauseWorkoutBtn').style.display = 'none';
+            document.getElementById('workoutProgress').style.width = '0%';
+            
+            // Update stats
+            const workoutsEl = document.getElementById('workouts');
+            const caloriesEl = document.getElementById('calories');
+            const streakEl = document.getElementById('streak');
+            
+            workoutsEl.textContent = parseInt(workoutsEl.textContent) + 1;
+            caloriesEl.textContent = parseInt(caloriesEl.textContent) + 350;
+            streakEl.textContent = parseInt(streakEl.textContent) + 1;
+            
+            showNotification('🎉 Workout completed! Amazing effort!');
+        }
+
+        function addWater() {
+            if (waterCount < 8) {
+                waterCount++;
+                document.getElementById('waterCount').textContent = waterCount;
+                document.getElementById('waterProgress').style.width = (waterCount / 8) * 100 + '%';
+                
+                if (waterCount === 8) {
+                    showNotification('🎉 Daily hydration goal achieved! Great job!');
+                } else {
+                    showNotification(`💧 Great! ${8 - waterCount} more glasses to go!`);
+                }
+            } else {
+                showNotification('💧 You\'ve reached your daily water goal!');
+            }
+        }
+
+        function resetWater() {
+            waterCount = 0;
+            document.getElementById('waterCount').textContent = '0';
+            document.getElementById('waterProgress').style.width = '0%';
+            showNotification('🔄 Water tracker reset for a new day!');
+        }
+
+        function addMeal() {
+            const foodItem = document.getElementById('foodItem').value.trim();
+            const calorieAmount = parseInt(document.getElementById('calorieAmount').value);
+            
+            if (!foodItem || !calorieAmount || calorieAmount <= 0) {
+                showNotification('⚠️ Please enter both food item and calories!');
+                return;
+            }
+            
+            totalCalories += calorieAmount;
+            document.getElementById('totalCalories').textContent = totalCalories;
+            document.getElementById('calorieProgress').style.width = Math.min((totalCalories / 2000) * 100, 100) + '%';
+            
+            document.getElementById('foodItem').value = '';
+            document.getElementById('calorieAmount').value = '';
+            
+            showNotification(`✅ Added ${foodItem} (${calorieAmount} calories)`);
+        }
+
+        function saveReminders() {
+            const reminders = {
+                workout: document.getElementById('workoutReminder').checked,
+                water: document.getElementById('waterReminder').checked,
+                movement: document.getElementById('moveReminder').checked,
+                sleep: document.getElementById('sleepReminder').checked
+            };
+            
+            showNotification('⏰ Reminder preferences saved successfully!');
+        }
+
+        // MENTAL WELLNESS FUNCTIONS
+        function showQuickStress() {
+            document.getElementById('stressContent').style.display = 'block';
+            document.getElementById('stressContent').scrollIntoView({ behavior: 'smooth' });
+            showNotification('🌟 Quick stress relief tools activated!');
+        }
+
+        function showEmergencyCalm() {
+            showModal(
+                '⚡ Emergency Calm Protocol',
+                'RIGHT NOW - Do this immediately:\n\n1. 🌬️ BREATHE: Take 3 deep breaths (4 seconds in, 6 seconds out)\n\n2. 🧊 GROUND YOURSELF: Feel your feet on the floor, notice 3 objects around you\n\n3. 💭 REMIND YOURSELF: "This is temporary. I am safe. I can handle this."\n\n4. 💧 DRINK WATER: Take a few sips slowly\n\n5. 📞 REACH OUT: Consider calling a friend or support hotline if needed\n\nYou\'re going to be okay. This feeling will pass.'
+            );
+            
+            // Auto-show stress relief content
+            setTimeout(() => {
+                document.getElementById('stressContent').style.display = 'block';
+            }, 3000);
+        }
+
+        function showStressAssessment() {
+            showModal(
+                '📋 Quick Stress Assessment',
+                'Rate your current stress level (1-10):\n\n1-3: 😌 Low stress - Great job managing!\n4-6: 😐 Moderate stress - Normal levels\n7-8: 😰 High stress - Time for some relief techniques\n9-10: 🆘 Very high stress - Please use emergency calm or reach out for support\n\nBased on your daily check-ins, your stress patterns suggest:\n• Morning meditation helps most\n• Exercise reduces your stress by 40%\n• Community support is very effective for you'
+            );
+        }
+
+        function hideStressContent() {
+            document.getElementById('stressContent').style.display = 'none';
+            showNotification('✨ Great! Keep using these techniques when needed.');
+        }
+        function likePost(button) {
+            const currentLikes = parseInt(button.getAttribute('data-likes'));
+            const newLikes = currentLikes + 1;
+            
+            button.setAttribute('data-likes', newLikes);
+            button.innerHTML = `❤️ ${newLikes} Likes`;
+            button.style.background = '#e91e63';
+            
+            showNotification('❤️ Post liked! Spreading positivity!');
+        }
+
+        function sharePost() {
+            const postText = document.getElementById('newPostText').value.trim();
+            
+            if (!postText) {
+                showNotification('⚠️ Please write something to share!');
+                return;
+            }
+            
+            // Create new post element
+            const newPost = document.createElement('div');
+            newPost.className = 'community-post';
+            newPost.innerHTML = `
+                <div class="post-header">
+                    <div class="avatar">Y</div>
+                    <div>
+                        <strong>You</strong>
+                        <small style="color: #666;">Just now</small>
+                    </div>
+                </div>
+                <p>${postText}</p>
+                <button class="btn like-btn" data-likes="0">❤️ 0 Likes</button>
+                <button class="btn">💬 Reply</button>
+            `;
+            
+            // Add to community feed
+            const communityPosts = document.getElementById('communityPosts');
+            communityPosts.insertBefore(newPost, communityPosts.firstChild);
+            
+            // Add event listener to new like button
+            newPost.querySelector('.like-btn').addEventListener('click', function() {
+                likePost(this);
+            });
+            
+            document.getElementById('newPostText').value = '';
+            
+            // Update stats
+            const postsEl = document.getElementById('posts');
+            postsEl.textContent = parseInt(postsEl.textContent) + 1;
+            
+            showNotification('✨ Post shared successfully!');
+        }
+
+        function startMeditation() {
+            showModal(
+                '🧘‍♀️ Guided Meditation Session',
+                'Find a comfortable position and close your eyes. Focus on your breath. Inhale deeply for 4 counts... hold for 4 counts... exhale slowly for 6 counts. Let all thoughts pass by like clouds in the sky. Stay present in this moment.'
+            );
+            
+            // Simulate meditation completion after 5 seconds for demo
+            setTimeout(() => {
+                showNotification('✨ 5-minute meditation completed! Feel the calm energy.');
+            }, 5000);
+        }
+
+        function startBreathing() {
+            showModal(
+                '🌬️ 4-7-8 Breathing Technique',
+                'This powerful breathing exercise helps reduce anxiety instantly:\n\n1. Inhale through your nose for 4 counts\n2. Hold your breath for 7 counts\n3. Exhale through your mouth for 8 counts\n4. Repeat this cycle 4 times\n\nFocus only on counting and breathing. Feel the tension leaving your body.'
+            );
+        }
+
+        function showStressResources() {
+            showModal(
+                '📚 Stress Relief Resource Library',
+                'Available resources:\n• Progressive Muscle Relaxation Guide\n• Mindfulness Techniques\n• Quick Stress-Busters (5-minute activities)\n• Emergency Support Hotlines\n• Peer Support Groups\n• Stress Management Articles\n• Calming Music Playlists\n\nRemember: It\'s okay to not be okay. Reach out for support when needed.'
+            );
+        }
+
+        function showMoodAnalysis() {
+            showModal(
+                '📊 Your Mood Insights',
+                'Weekly Mood Summary:\n• Most common mood: Good 😊\n• Stress level trend: Decreasing ↘️\n• Best days: Weekends\n• Recommended: Continue meditation practice\n• Mood stability: Improving\n\nYou\'re making great progress on your mental wellness journey!'
+            );
+        }
+
+        function setMood(mood) {
+            const moodMessages = {
+                'excellent': "🌟 That's fantastic! Your positive energy is contagious! Keep shining!",
+                'good': "😊 Wonderful! You're doing great. Maintain this positive momentum!",
+                'okay': "🤗 It's perfectly normal to have okay days. You're still moving forward!",
+                'stressed': "🧘‍♀️ Take some deep breaths. Try our 5-minute meditation or reach out to the community.",
+                'low': "🤗 Tough days are part of the journey. The community is here for you. Consider talking to someone you trust."
+            };
+            
+            const feedback = document.getElementById('moodFeedback');
+            feedback.textContent = moodMessages[mood];
+            feedback.style.color = '#667eea';
+            
+            showNotification('📊 Mood logged! Thank you for checking in with yourself.');
+        }
+
+        // COMMUNITY FUNCTIONS
+        function findWorkoutBuddy() {
+            showModal(
+                '👯‍♀️ Find Your Workout Buddy',
+                'Based on your fitness goals and location, we found potential workout partners:\n\n• Sarah L. - Weight loss journey, same area\n• Mike R. - Strength training focus, nearby gym\n• Emma K. - Running enthusiast, morning workouts\n\nWorkout buddies increase success rates by 78%! Connect with someone who shares your goals and schedule.'
+            );
+        }
+
+        function joinSupportGroup() {
+            showModal(
+                '👥 Support Groups Available',
+                'Join a group that matches your needs:\n\n• 💪 Fitness Motivation Circle (234 members)\n• 🧘‍♀️ Mindfulness & Anxiety Support (156 members)\n• 🏃‍♀️ Running Enthusiasts (189 members)\n• 🏋️‍♀️ Strength Training Community (145 members)\n• 🥗 Healthy Eating Support (298 members)\n\nThese groups provide 24/7 support, shared experiences, and accountability!'
+            );
+        }
+
+        function joinMentalHealthCircle() {
+            showModal(
+                '🧠 Mental Health Support Circle',
+                'A safe space for mental wellness:\n\n• Daily check-ins and peer support\n• Guided group meditation sessions\n• Stress management workshops\n• Professional counselor participation\n• Crisis support resources\n\nRemember: Seeking support is a sign of strength, not weakness. You\'re not alone in this journey.'
+            );
+        }
+
+        function viewChallenges() {
+            showModal(
+                '🏆 Community Challenges',
+                'Active challenges you can join:\n\n🧘‍♀️ 30-Day Mindfulness Challenge\n- Daily 10-minute meditation\n- Progress tracking and badges\n- Community support\n\n👟 10K Steps Daily\n- Step tracking competition\n- Weekly leaderboards\n- Motivation from peers\n\n💧 Hydration Heroes\n- 8 glasses of water daily\n- Reminder system\n- Healthy habit building\n\nJoin any challenge to stay motivated and connected!'
+            );
+        }
+
+        // SPORTS FUNCTIONS
+        function registerForTournament(sport) {
+            const tournaments = {
+                'basketball': {
+                    name: 'City Basketball Championship',
+                    fee: '$75',
+                    date: 'March 20, 2025'
+                },
+                'soccer': {
+                    name: 'Spring Soccer League',
+                    fee: '$100',
+                    date: 'April 5, 2025'
+                },
+                'tennis': {
+                    name: 'Tennis Open Tournament',
+                    fee: '$50',
+                    date: 'April 15, 2025'
+                }
+            };
+            
+            const tournament = tournaments[sport];
+            showModal(
+                '🏆 Tournament Registration',
+                `You're registering for the ${tournament.name}!\n\nDate: ${tournament.date}\nEntry Fee: ${tournament.fee}\n\nThis is a great opportunity to compete, improve your skills, and potentially get noticed by scouts and sponsors. Good luck!`
+            );
+            
+            // Update tournaments stat
+            const tournamentsEl = document.getElementById('tournaments');
+            tournamentsEl.textContent = parseInt(tournamentsEl.textContent) + 1;
+            
+            showNotification('🎯 Tournament registration successful!');
+        }
+
+        function saveAthleteProfile() {
+            const sport = document.getElementById('primarySport').value;
+            const experience = document.getElementById('experienceLevel').value;
+            const location = document.getElementById('athleteLocation').value;
+            const achievements = document.getElementById('achievements').value;
+            
+            if (!location.trim()) {
+                showNotification('⚠️ Please enter your location!');
+                return;
+            }
+            
+            showModal(
+                '💫 Profile Updated Successfully!',
+                `Your athlete profile has been updated:\n\nSport: ${sport.charAt(0).toUpperCase() + sport.slice(1)}\nLevel: ${experience.charAt(0).toUpperCase() + experience.slice(1)}\nLocation: ${location}\n\nYour profile is now visible to coaches, scouts, and potential sponsors!`
+            );
+            
+            showNotification('✅ Athlete profile saved successfully!');
+        }
+
+        function findSponsors() {
+            showModal(
+                '💰 Sponsorship Opportunities',
+                'Based on your profile, we\'ve found potential sponsorship matches:\n\n• Local Sports Equipment Store\n• Regional Athletic Apparel Brand\n• Community Fitness Center\n• Sports Nutrition Company\n\nWe\'ll connect you with relevant sponsors. They typically look for dedicated athletes with community engagement!'
+            );
+        }
+
+        function findCoaches() {
+            showModal(
+                '👨‍🏫 Coach Connections',
+                'Great coaches in your area:\n\n• Coach Sarah M. - 15 years experience\n• Coach Mike R. - Former professional player\n• Coach Lisa K. - Youth development specialist\n\nThey offer personalized training, technique improvement, and competition preparation. Ready to take your game to the next level?'
+            );
+        }
+
+        function connectWithScouts() {
+            showModal(
+                '🔍 Scout Network Access',
+                'Your profile is now visible to professional scouts!\n\nActive scouts in your region:\n• College recruiters\n• Semi-professional teams\n• Professional league scouts\n\nMaintain consistent performance and active community engagement to increase your visibility!'
+            );
+        }
+
+        function viewTrainingPrograms() {
+            showModal(
+                '📈 Advanced Training Programs',
+                'Specialized training programs available:\n\n• Elite Performance Training\n• Sport-Specific Skill Development\n• Mental Toughness Coaching\n• Competition Preparation\n• Recovery & Injury Prevention\n\nThese programs are designed to take serious athletes to the next level!'
+            );
+        }
+
+        function createTournament() {
+            const name = document.getElementById('tournamentName').value.trim();
+            const sport = document.getElementById('tournamentSport').value;
+            const date = document.getElementById('tournamentDate').value;
+            const prize = document.getElementById('prizePool').value;
+            const entry = document.getElementById('entryFee').value;
+            
+            if (!name || !date || !prize || !entry) {
+                showNotification('⚠️ Please fill in all tournament details!');
+                return;
+            }
+            
+            showModal(
+                '🏆 Tournament Created Successfully!',
+                `"${name}" has been created!\n\nSport: ${sport.charAt(0).toUpperCase() + sport.slice(1)}\nDate: ${date}\nPrize Pool: ${prize}\nEntry Fee: ${entry}\n\nOther athletes can now discover and register for your tournament. You'll be notified when players sign up!`
+            );
+            
+            // Reset form
+            document.getElementById('tournamentName').value = '';
+            document.getElementById('tournamentDate').value = '';
+            document.getElementById('prizePool').value = '';
+            document.getElementById('entryFee').value = '';
+            
+            showNotification('🎉 Tournament created and published!');
+        }
+
+        // DASHBOARD FUNCTIONS
+        function updateGoals() {
+            const checkedGoals = document.querySelectorAll('#dashboard input[type="checkbox"]:checked').length;
+            showModal(
+                '🎯 Goals Updated',
+                `You have ${checkedGoals} active goals this week. Stay focused and consistent! Remember:\n\n• Small daily actions lead to big results\n• Progress over perfection\n• Celebrate every achievement\n\nYou've got this! 💪`
+            );
+            
+            showNotification('🎯 Weekly goals updated successfully!');
+        }
+
+        // UTILITY FUNCTIONS
+        function showNotification(message) {
+            const notification = document.getElementById('notification');
+            notification.textContent = message;
+            notification.style.display = 'block';
+            
+            // Auto-hide after 4 seconds
+            setTimeout(() => {
+                notification.style.display = 'none';
+            }, 4000);
+        }
+
+        function showModal(title, content) {
+            document.getElementById('modalTitle').textContent = title;
+            document.getElementById('modalContent').innerHTML = content.replace(/\n/g, '<br>');
+            document.getElementById('modal').style.display = 'block';
+        }
+
+        function closeModal() {
+            document.getElementById('modal').style.display = 'none';
+        }
+    </script>
+</body>
+</html>
