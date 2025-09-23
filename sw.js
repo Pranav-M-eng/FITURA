@@ -4,9 +4,9 @@ self.addEventListener("install", e => {
       cache.addAll([
         "/FITURA/",
         "/FITURA/index.html",
-        "/FITURA/style.css",
-        "/FITURA/script.js"
+        "/FITURA/style.css"
       ])
     )
   );
 });
+
