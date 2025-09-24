@@ -22,6 +22,7 @@
             <button class="nav-tab" data-tab="community">🤝 Community</button>
             <button class="nav-tab" data-tab="sports">⚽ Sports Hub</button>
             <button class="nav-tab" data-tab="dashboard">📊 Dashboard</button>
+            <button class="nav-tab" id="installBtn">⬇️ Download</button>
         </div>
 
         <!-- Physical Fitness Panel -->
@@ -505,6 +506,30 @@
       .catch(err => console.error('Service Worker registration failed:', err));
   }
 </script>
+    <script>
+let deferredPrompt;
+const installBtn = document.getElementById('installBtn');
+
+window.addEventListener('beforeinstallprompt', (e) => {
+  // Stop Chrome’s default mini-infobar
+  e.preventDefault();
+  deferredPrompt = e;
+  // Show your custom button
+  installBtn.style.display = 'inline-block';
+});
+
+installBtn.addEventListener('click', () => {
+  installBtn.style.display = 'none';
+  // Show the install prompt
+  deferredPrompt.prompt();
+  // Wait for the user’s choice
+  deferredPrompt.userChoice.then((choice) => {
+    console.log(`User response: ${choice.outcome}`);
+    deferredPrompt = null;
+  });
+});
+</script>
+
 
 
     <script>
@@ -1101,6 +1126,7 @@
 </body>
 
 </html>
+
 
 
 
