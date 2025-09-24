@@ -507,6 +507,17 @@
   }
 </script>
     <script>
+        // Tab navigation
+document.querySelectorAll('.nav-tab').forEach(tab => {
+    tab.addEventListener('click', function() {
+        const targetTab = this.getAttribute('data-tab');
+        if (targetTab) {  // This line already exists
+            switchTab(targetTab);
+        }
+    });
+});
+    </script>
+    <script>
 let deferredPrompt;
 const installBtn = document.getElementById('installBtn');
 
@@ -1126,6 +1137,7 @@ installBtn.addEventListener('click', () => {
 </body>
 
 </html>
+
 
 
 
