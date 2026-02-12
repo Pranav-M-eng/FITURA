@@ -10,18 +10,4 @@ self.addEventListener("install", e => {
   );
 });
 
-<script>
-async function sendToAI() {
-  const text = document.getElementById("arg").value;
-
-  const res = await fetch("http://127.0.0.1:5000/analyze", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ text })
-  });
-
-  const data = await res.json();
-  document.getElementById("output").textContent = data.result;
-}
-</script>
 
