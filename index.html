@@ -10,9 +10,10 @@
 
 </head>
 <body>
-    <textarea id="arg" placeholder="Enter text to analyze"></textarea>
+   <textarea id="arg"></textarea>
 <button onclick="sendToAI()">Analyze</button>
 <pre id="output"></pre>
+
 
     <div class="container">
         <div class="header">
@@ -503,6 +504,21 @@
             <button class="btn" id="modalCloseBtn">Close</button>
         </div>
     </div>
+    <script>
+async function sendToAI() {
+  const text = document.getElementById("arg").value;
+
+  const res = await fetch("https://fitura-production.up.railway.app/analyze", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ text })
+  });
+
+  const data = await res.json();
+  document.getElementById("output").textContent = data.result;
+}
+</script>
+
    <script>
   if ('serviceWorker' in navigator) {
     navigator.serviceWorker.register('/FITURA/sw.js', { scope: '/FITURA/' })
@@ -1141,6 +1157,7 @@ installBtn.addEventListener('click', () => {
 </body>
 
 </html>
+
 
 
 
